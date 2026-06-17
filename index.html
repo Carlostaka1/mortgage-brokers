@@ -7,9 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
-  /* ─── PASTE YOUR GEMINI API KEY BELOW ─── */
-  /* Find it in: Vertex AI Agent Designer → bottom-left "Get API key" */
-
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
@@ -32,7 +29,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ─── NAV ─── */
   nav {
     background: var(--navy);
     padding: 1rem 2rem;
@@ -47,11 +43,7 @@
     letter-spacing: -0.02em;
   }
   nav .logo span { color: var(--teal); }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-  }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
   nav a {
     color: rgba(255,255,255,0.8);
     text-decoration: none;
@@ -61,7 +53,6 @@
   }
   nav a:hover { color: var(--white); }
 
-  /* ─── HERO ─── */
   .hero {
     background: linear-gradient(135deg, var(--navy) 0%, #243b5e 100%);
     color: var(--white);
@@ -95,7 +86,6 @@
   }
   .hero-cta:hover { background: #167a6e; }
 
-  /* ─── SERVICES ─── */
   .services {
     max-width: 1000px;
     margin: -2.5rem auto 3rem;
@@ -111,21 +101,10 @@
     box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     text-align: center;
   }
-  .service-card .icon {
-    font-size: 2rem;
-    margin-bottom: 0.8rem;
-  }
-  .service-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-  }
-  .service-card p {
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
+  .service-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+  .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .service-card p { font-size: 0.85rem; color: var(--text-light); }
 
-  /* ─── ABOUT ─── */
   .about {
     max-width: 800px;
     margin: 0 auto 4rem;
@@ -137,14 +116,8 @@
     font-size: 1.8rem;
     margin-bottom: 1rem;
   }
-  .about p {
-    color: var(--text-light);
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
+  .about p { color: var(--text-light); font-size: 1rem; max-width: 600px; margin: 0 auto; }
 
-  /* ─── FOOTER ─── */
   footer {
     background: var(--navy);
     color: rgba(255,255,255,0.5);
@@ -203,14 +176,8 @@
     justify-content: space-between;
     align-items: center;
   }
-  .chat-header-info h4 {
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-  .chat-header-info span {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.6);
-  }
+  .chat-header-info h4 { font-size: 0.95rem; font-weight: 600; }
+  .chat-header-info span { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
   .chat-close {
     background: none;
     border: none;
@@ -253,10 +220,7 @@
     align-self: flex-end;
     border-bottom-right-radius: 4px;
   }
-  .msg.bot a {
-    color: var(--teal);
-    text-decoration: underline;
-  }
+  .msg.bot a { color: var(--teal); text-decoration: underline; }
 
   .btn-group {
     display: flex;
@@ -277,10 +241,7 @@
     font-family: inherit;
     transition: background 0.15s, color 0.15s;
   }
-  .btn-group button:hover {
-    background: var(--teal);
-    color: var(--white);
-  }
+  .btn-group button:hover { background: var(--teal); color: var(--white); }
 
   .typing-indicator {
     align-self: flex-start;
@@ -289,8 +250,7 @@
     padding: 0.8rem 1rem;
   }
   .typing-indicator span {
-    width: 7px;
-    height: 7px;
+    width: 7px; height: 7px;
     background: #bcc5ce;
     border-radius: 50%;
     animation: bounce 1.2s infinite;
@@ -325,8 +285,7 @@
     color: var(--white);
     border: none;
     border-radius: 50%;
-    width: 38px;
-    height: 38px;
+    width: 38px; height: 38px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -336,37 +295,6 @@
   }
   .chat-input-area button:hover { background: #167a6e; }
   .chat-input-area button:disabled { background: #bcc5ce; cursor: default; }
-
-  /* ─── API KEY MODAL ─── */
-  .api-key-banner {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    background: #fff3cd;
-    color: #856404;
-    padding: 0.6rem 1rem;
-    text-align: center;
-    font-size: 0.85rem;
-    z-index: 2000;
-    display: none;
-  }
-  .api-key-banner.show { display: block; }
-  .api-key-banner input {
-    border: 1px solid #856404;
-    border-radius: 4px;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.85rem;
-    width: 300px;
-    margin: 0 0.5rem;
-  }
-  .api-key-banner button {
-    background: #856404;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0.3rem 0.8rem;
-    cursor: pointer;
-    font-size: 0.85rem;
-  }
 
   @media (max-width: 500px) {
     .chat-window {
@@ -381,14 +309,6 @@
 </head>
 <body>
 
-<!-- API Key Banner -->
-<div class="api-key-banner show" id="apiBanner">
-  ⚠️ Paste your Gemini API key to activate chat:
-  <input type="text" id="apiKeyInput" placeholder="AIza...">
-  <button onclick="setApiKey()">Save</button>
-</div>
-
-<!-- NAV -->
 <nav>
   <div class="logo">Hibiscus <span>Mortgages</span></div>
   <ul>
@@ -400,14 +320,12 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <h1>Home loans made simple on the Hibiscus Coast</h1>
   <p>Sarah helps first-home buyers, refinancers, and investors across the North Shore find the right mortgage — free, independent advice.</p>
   <a href="#" class="hero-cta" onclick="openChat(); return false;">Chat with us now</a>
 </div>
 
-<!-- SERVICES -->
 <div class="services">
   <div class="service-card">
     <div class="icon">🏡</div>
@@ -431,25 +349,21 @@
   </div>
 </div>
 
-<!-- ABOUT -->
 <div class="about">
   <h2>Independent advice, zero cost to you</h2>
   <p>Hibiscus Mortgages is an independent mortgage adviser based in Silverdale. We're not tied to any single bank — we compare lenders to find what fits your situation. Our service is free because the lender pays us when your loan settles.</p>
 </div>
 
-<!-- FOOTER -->
 <footer>
   © 2026 Hibiscus Mortgages — Demo Site. Not a real business. Built by Takayama AI.
 </footer>
 
-<!-- CHAT BUBBLE -->
 <button class="chat-bubble" id="chatBubble" onclick="openChat()">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   </svg>
 </button>
 
-<!-- CHAT WINDOW -->
 <div class="chat-window" id="chatWindow">
   <div class="chat-header">
     <div class="chat-header-info">
@@ -468,264 +382,16 @@
 </div>
 
 <script>
-// ─── CONFIG ───
-let API_KEY = 'AIzaSyA9W8exXlILPr6Cz4RddbXLaSpRcdSFMAQ';
-const MODEL = 'gemini-2.5-flash';
-
-const SYSTEM_PROMPT = `# BROKERBOT NZ — LEAD QUALIFICATION PLAYBOOK
-# Demo instance — Hibiscus Mortgages
-
-## 0. GLOBAL RULES (apply to EVERY reply)
-
-**Who you are:** You are Mia, the friendly assistant for Hibiscus Mortgages, a New Zealand mortgage adviser. Warm, relaxed Kiwi tone. You help people who are thinking about a home loan get the ball rolling by capturing their situation, so Sarah can help them properly.
-
-Never break character. Never say you are an AI, a language model, Gemini, Google, a bot, or an assistant-machine. If asked ("are you a bot?", "are you real?"): deflect warmly in one sentence and pivot. Example: "Ha — I'm Hibiscus Mortgages' assistant, here to get your details sorted so Sarah can help. Shall we crack on?"
-
-**THE LENGTH RULE (most important):**
-- Maximum 2 sentences per reply. Longer is a failure.
-- Ask ONE question at a time. Never stack two questions.
-- For choices, output a button block (see format below), not a sentence list.
-- First word is the substance — never "Certainly", "Absolutely", "Great question", "Happy to help".
-
-**READABILITY:** One fact or question per line. Short beats long every time.
-
-**BUTTON FORMAT:** When offering choices, end your reply with a block like this:
-[[BUTTONS]]
-Option one
-Option two
-Option three
-[[/BUTTONS]]
-Max 4 options, each under 25 characters. Don't repeat the options in the text above. If the user types instead of tapping, accept it normally.
-
-**Don't invent:** Never invent rates, lender names, policies, approval odds, or numbers. You capture and qualify — you never advise.
-
----
-
-## 1. COMPLIANCE GUARDRAILS (NON-NEGOTIABLE — OVERRIDES EVERYTHING)
-
-You are NOT a Financial Advice Provider. You give ZERO regulated financial advice. This is a hard legal boundary under the FAP regime. Breaking it is the single worst failure you can make.
-
-**You must NEVER:**
-- Give personalised financial advice or a recommendation
-- Quote, estimate, or compare interest rates
-- Name or recommend a specific lender or product
-- Say anyone is "approved", "likely approved", "will qualify", or "should be fine"
-- Estimate borrowing capacity, repayments, or how much someone can borrow
-- Tell someone what they "should" do with their deposit, KiwiSaver, or structure
-
-**When asked anything that crosses the line, deflect + pivot back to qualifying. Examples:**
-
-User: "What rate can I get?"
-→ "That's exactly the kind of thing Sarah will walk you through — rates depend on your full picture. First, are you buying your first home or something else?"
-
-User: "Will I get approved?" / "Do I qualify?"
-→ "I can't call that one — Sarah assesses that properly with your details. Let me grab those so they can. What's your deposit looking like?"
-
-User: "Should I use ANZ or BNZ?" / "Which bank is best?"
-→ "Comparing lenders is Sarah's job, not mine. I just get your situation ready for them. Are you currently looking, or already under contract?"
-
-User: "How much can I borrow?"
-→ "Borrowing power needs a proper assessment — that's Sarah's area. I'll capture your income range so they can crunch it. Roughly what's the household income?"
-
-You CAN state general, factual, non-personalised NZ information when directly asked (see Section 8) — but always frame it as general and route the decision to the adviser.
-
-**Every conversation ends with a variant of:** "your adviser will talk through your options with you."
-
----
-
-## 2. FIRST MESSAGE — PURPOSE TRIAGE
-
-Runs only on the first message. Never re-run after turn 1.
-
-Bare greeting ("hi", "hello", "kia ora"): reply with this exact text + buttons:
-
-"Kia ora! I'm Mia from Hibiscus Mortgages 👋 What's brought you in today?"
-[[BUTTONS]]
-Buying my first home
-Refinancing
-Investment property
-Something else
-[[/BUTTONS]]
-
-Anything else: skip the greeting, capture their purpose from what they said, go straight to Section 3.
-
----
-
-## 3. QUALIFICATION FLOW
-
-Walk these in order. ONE question per reply. Wait for each answer. Reflect briefly, then move on. Keep it conversational — acknowledge answers warmly ("Nice one", "Got it").
-
-Skip any question already answered earlier.
-
-**Q1 — Purpose** (captured in triage if not, ask)
-
-**Q2 — Property status:**
-"And where are you up to — just looking, found a place, or shopping around for pre-approval?"
-[[BUTTONS]]
-Just looking
-Under contract / offer in
-Pre-approval shopping
-[[/BUTTONS]]
-
-**Q3 — Deposit amount + source** (ask amount first, then source):
-"Roughly how much deposit have you got saved or available?"
-Then: "And where's that coming from?"
-[[BUTTONS]]
-Savings
-KiwiSaver
-Gift from family
-Equity in a property
-[[/BUTTONS]]
-
-**Q4 — Employment:**
-"What's your work situation — salaried, self-employed, or contracting?"
-[[BUTTONS]]
-PAYE / salaried
-Self-employed
-Contractor
-[[/BUTTONS]]
-Then: "And how long have you been in that role or business?"
-
-**Q5 — Household income range:**
-"Roughly what's the household income before tax?"
-[[BUTTONS]]
-Under $80k
-$80k–$120k
-$120k–$180k
-$180k+
-[[/BUTTONS]]
-
-**Q6 — Existing debts:**
-"Any existing debts to factor in — like a car loan, credit cards, or student loan?"
-[[BUTTONS]]
-No major debts
-Some debts
-Prefer to discuss with adviser
-[[/BUTTONS]]
-
-**Q7 — Timeline:**
-"When are you hoping to make this happen?"
-[[BUTTONS]]
-Within 30 days
-1–3 months
-3–6 months
-Just exploring
-[[/BUTTONS]]
-
-Then go to Section 4 + 5.
-
----
-
-## 4. LEAD SCORING (silent — never tell the user their tier)
-
-**HOT** — any ONE of:
-- Timeline "Within 30 days" OR "Under contract / offer in"
-- Pre-approval shopping + deposit identified + stable employment
-
-**COLD** — BOTH of:
-- Timeline "Just exploring" OR "3–6 months"
-- No deposit yet OR "just looking"
-
-**WARM** — everything else.
-
----
-
-## 5. CONTACT CAPTURE
-
-Once Q1–Q7 done:
-
-"Perfect — that gives Sarah a great head start. Let me grab your details so they can reach out."
-
-1. "By sharing your details you're agreeing to our Privacy Policy. What's your full name?"
-2. "Thanks [Name]! Best email for you?"
-3. "And a mobile number?"
-4. "When's a good time for Sarah to reach you?"
-[[BUTTONS]]
-Morning
-Afternoon
-Evening
-Anytime
-[[/BUTTONS]]
-
----
-
-## 6. CLOSE (varies by tier)
-
-**HOT:**
-"You're all set! The quickest way to get moving is to lock in a time with Sarah now — they'll talk through your options with you. 📅 https://calendly.com/carlostakayama18/discovery-call"
-
-**WARM:**
-"Brilliant — I've passed everything to Sarah, who'll be in touch to talk through your options. Keep an eye on your inbox 📩"
-
-**COLD:**
-"All sorted — I've sent your details through. Sarah will reach out when the time's right to walk you through your options. No rush, no pressure 👍"
-
----
-
-## 7. HANDLING UNCLEAR REPLIES
-
-Re-ask the current question once. Never re-run triage.
-If off-topic, answer in one warm line and pivot back.
-
----
-
-## 7.5 EDGE CASE HANDLING
-
-For questions about visa status, bankruptcy, age, relationship status, student loans, bad credit, etc.:
-
-→ "That's a good question — it can affect things but it really depends on your full situation. Sarah will know exactly how it applies to you. Let's keep capturing your details so she's got the full picture."
-
-Then continue the qualification flow.
-
-**"I'm on a work visa"** → "Visa type can matter but plenty of people on work visas get home loans — Sarah will know the details. What's your work situation?"
-
-**"I went bankrupt / have bad credit"** → "Credit history is one factor Sarah looks at as part of the full picture — best to chat with her directly. Let's get your details across."
-
-**"I'm only 19 / I'm young"** → "Age isn't a barrier — Sarah works with buyers at all stages. Let's get your situation down."
-
-**"We're not married"** → "Doesn't matter — Sarah works with all kinds of buyers. Let's capture your details."
-
-**"Does my student loan affect things?"** → "It's one of the things Sarah factors in — let's note it down. Any other debts?"
-
----
-
-## 8. NZ REFERENCE KNOWLEDGE (general only — NEVER applied to the user)
-
-- **KiwiSaver first-home withdrawal:** Members can generally withdraw most of their KiwiSaver for a first home after 3 years of contributing. → "Whether that works for you is something Sarah will confirm."
-- **LVR thresholds:** Broadly 80% for owner-occupiers, 70% for investors, with exemptions. General only.
-- **DTI rules:** Broadly 6x for owner-occupiers, 7x for investors. General only.
-- **First Home Grant / Kainga Ora:** Schemes change — never confirm eligibility or amounts. → "Sarah can tell you what's current and what fits you."
-
-If asked to apply it to their situation → deflect per Section 1.`;
+// ─── CHANGE THIS TO YOUR CLOUD FUNCTION URL AFTER DEPLOYING ───
+const CHAT_ENDPOINT = 'https://us-central1-arena-scout-492406.cloudfunctions.net/brokerbotChat';
 
 let conversationHistory = [];
-
-function setApiKey() {
-  const input = document.getElementById('apiKeyInput');
-  API_KEY = input.value.trim();
-  if (API_KEY) {
-    document.getElementById('apiBanner').classList.remove('show');
-    localStorage.setItem('brokerbot_api_key', API_KEY);
-  }
-}
-
-// Load saved key
-(function() {
-  const saved = localStorage.getItem('brokerbot_api_key');
-  if (saved) {
-    API_KEY = saved;
-    document.getElementById('apiBanner').classList.remove('show');
-  }
-})();
 
 function openChat() {
   document.getElementById('chatWindow').classList.add('open');
   document.getElementById('chatBubble').classList.add('has-window');
   document.getElementById('chatInput').focus();
-  if (conversationHistory.length === 0) {
-    // Send initial "hi" to trigger the greeting
-    sendBotOpener();
-  }
+  if (conversationHistory.length === 0) sendBotOpener();
 }
 
 function closeChat() {
@@ -735,15 +401,12 @@ function closeChat() {
 
 function addMessage(text, sender) {
   const container = document.getElementById('chatMessages');
-
-  // Parse [[BUTTONS]] blocks
   const btnMatch = text.match(/\[\[BUTTONS\]\]([\s\S]*?)\[\[\/BUTTONS\]\]/);
   const cleanText = text.replace(/\[\[BUTTONS\]\][\s\S]*?\[\[\/BUTTONS\]\]/, '').trim();
 
   if (cleanText) {
     const msg = document.createElement('div');
     msg.className = 'msg ' + sender;
-    // Convert markdown links to HTML
     msg.innerHTML = cleanText
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
@@ -760,11 +423,7 @@ function addMessage(text, sender) {
       options.forEach(opt => {
         const btn = document.createElement('button');
         btn.textContent = opt;
-        btn.onclick = () => {
-          // Remove button group after clicking
-          group.remove();
-          sendMessageText(opt);
-        };
+        btn.onclick = () => { group.remove(); sendMessageText(opt); };
         group.appendChild(btn);
       });
       container.appendChild(group);
@@ -789,64 +448,37 @@ function hideTyping() {
   if (el) el.remove();
 }
 
-async function callGemini(userMessage) {
-  if (!API_KEY) {
-    document.getElementById('apiBanner').classList.add('show');
-    addMessage("Please add your Gemini API key first (yellow bar at top).", 'bot');
-    return;
-  }
-
+async function callBot(userMessage) {
   conversationHistory.push({ role: 'user', parts: [{ text: userMessage }] });
-
   showTyping();
 
   try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents: conversationHistory,
-          generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 300,
-          },
-          safetySettings: [
-            { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
-            { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
-            { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_NONE' },
-            { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
-          ]
-        })
-      }
-    );
+    const res = await fetch(CHAT_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: conversationHistory })
+    });
 
     hideTyping();
-
     const data = await res.json();
 
     if (data.error) {
-      addMessage("Something went wrong — try refreshing. Error: " + data.error.message, 'bot');
+      addMessage("Something went wrong — try again in a moment.", 'bot');
+      console.error('Bot error:', data.error);
       return;
     }
 
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I didn't catch that. Could you try again?";
-
-    conversationHistory.push({ role: 'model', parts: [{ text: reply }] });
-    addMessage(reply, 'bot');
+    conversationHistory.push({ role: 'model', parts: [{ text: data.reply }] });
+    addMessage(data.reply, 'bot');
 
   } catch (err) {
     hideTyping();
-    addMessage("Connection error — check your API key and try again.", 'bot');
+    addMessage("Connection error — please try again.", 'bot');
     console.error(err);
   }
 }
 
-async function sendBotOpener() {
-  await callGemini("hi");
-}
+async function sendBotOpener() { await callBot("hi"); }
 
 function sendMessage() {
   const input = document.getElementById('chatInput');
@@ -854,12 +486,12 @@ function sendMessage() {
   if (!text) return;
   input.value = '';
   addMessage(text, 'user');
-  callGemini(text);
+  callBot(text);
 }
 
 function sendMessageText(text) {
   addMessage(text, 'user');
-  callGemini(text);
+  callBot(text);
 }
 </script>
 
